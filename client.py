@@ -18,7 +18,8 @@ def send_data(message):
     while amount_received < amount_expected:
         data = sock.recv(16)
         amount_received += len(data)
-        print('received {!r}'.format(data))
+        if data:
+            print('received {!r}'.format(data))
 
 
 # Create a TCP/IP socket
