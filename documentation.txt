@@ -1,0 +1,48 @@
+Software:
+
+Instructions:
+	Topside Computer
+		ESC Flashing (test on linux at some point)
+		Install QGroundcontrol
+		How to install / run joystick over wifi	(have to install pygame)	
+
+
+	Raspberry Pi
+		Install OS / copy SD card
+		Install dronekit (fix for python3 somehow??? maybe sudo pip3 install dronekit)
+		Install pymavlink (order matters, version needs to be 2.2.10 instead of 2.0.6)
+
+		Install GNURadio
+		Install SoapySDR
+		Install Osmocom
+		Install Limesuite (don't forget to change the cmakelists or install gtkGui or whatever to get the GUI to build) (DownloadMoreRAM.com?)
+	
+
+	Pixhawk
+		Make custom frame (in 6DOFMotors.cpp) :/
+		Build Ardupilot (have to install arm-none-eabi-gcc)
+		Flash firmware to pixhawk/run tests through groundcontrol
+
+
+
+
+Troubleshooting:
+	Raspberry Pi
+		Won't connect to pixhawk when pi isn't getting high enough voltage in
+	Pixhawk
+		Sometimes won't connect to anything if not back-powered through the ESC's
+
+
+
+
+
+
+
+
+
+
+
+Electrical:
+	Maybe update schematic to include connectors
+	Get diagram of plate/component layout?
+	
