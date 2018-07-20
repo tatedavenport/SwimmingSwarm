@@ -21,7 +21,7 @@ After installing MavLink and Dronekit the MavLink version should be at least 2.2
 
 # Installing LimeSDR and other Dependencies
 ## Install GNURadio
-To install GNURadio run `sudo apt-get install gnuradio
+To install GNURadio run `sudo apt-get install gnuradio`
 ## Install SoapySDR
 Follow the build guide [here][3]
 ## Install Osmocom
