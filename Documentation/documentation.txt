@@ -2,7 +2,7 @@ Software:
 
 Instructions:
 	Topside Computer
-		ESC Flashing (test on linux at some point)
+		Install blhelisuite 16 (ESC Flashing (test on linux at some point))
 		Install QGroundcontrol
 		How to install / run joystick over wifi	(have to install pygame)	
 
