@@ -28,6 +28,13 @@ Instructions:
 
 Hardware: 
 
+MicroSD Card 
+Variety of brands. Just make sure you have at least a 16 GB card to insure you have enough memory for the .iso.
+
+Raspberry Pi 3 Model B+ 
+https://www.adafruit.com/product/3775?src=raspberrypi
+
+
 Batteries: 
 Size: 18650
 Nominal Capacity: 2500mAh
@@ -36,7 +43,7 @@ Maximum Voltage: 4.2V
 Charge Batteries using a continuous power supply. Set the constant voltage to 16 volts (Assuming that you have four batteries in series) and charge until the current approaches 0 A. 
 
 Battery Managment Board
-????? Chinaesium 
+????? Chinaesium ????
 
 
 Pixhawk - PX4
