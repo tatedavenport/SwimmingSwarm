@@ -19,6 +19,6 @@ Follow the instructions [here][5]. The Pixhawk will most likely work best using 
 
 [1]: https://docs.qgroundcontrol.com/en/SetupView/Firmware.html
 [2]: https://www.ardusub.com/developers/developers.html#making-a-custom-configuration
-[3]: a
+[3]: https://github.com/chachmu/SwimmingSwarm/blob/master/Documentation/Pixhawk.md#build-ardusub-and-upload-it-to-the-pixhawk
 [4]: https://www.ardusub.com/developers/developers.html#developers
 [5]: https://github.com/ArduPilot/ardupilot/blob/master/BUILD.md
