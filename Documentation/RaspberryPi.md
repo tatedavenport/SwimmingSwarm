@@ -16,7 +16,7 @@ To install Dronekit run `sudo pip3 install dronekit`
 ## MavLink
 To install MavLink run `sudo pip3 install -U pymavlink`
 
-After these 2 steps the MavLink version should be at least 2.2.10
+After installing MavLink and Dronekit the MavLink version should be at least 2.2.10
 
 
 # Installing LimeSDR and other Dependencies
