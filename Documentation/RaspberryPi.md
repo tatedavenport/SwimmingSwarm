@@ -1,7 +1,11 @@
 # Installing the Operating System
 You can either download an base install of [raspbian][1] or copy a disk image from one of the other working raspberry pi's.
 To copy the disk image put the sd card in a linux computer, unmount the partitions, and run 
-`dd if=mmcblk0p2 of=RaspberryPiImage.img bs=1M`. Then you can use dd or some other software (like [Etcher][2])
+
+```
+dd if=mmcblk0p2 of=RaspberryPiImage.img bs=1M
+```
+Then you can use dd or some other software (like [Etcher][2])
 to copy that image to another sd card.
 
 # Installing Dependencies for Joystick Control over Wifi
