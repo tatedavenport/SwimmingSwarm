@@ -10,12 +10,12 @@ ArduSub supports custom motor layouts called frames. In order to do this:
    3. Uncomment the break statement after the added commands
 2. Compile the firmware and upload it to the Pixhawk
 
-More information can be found [here][4] but this page is specifically for the Blue Robotics version of ArduSub which is significantly
+More information can be found [here][3] but this page is specifically for the Blue Robotics version of ArduSub which is significantly
 behind the ArduPilot version.
 
 
 # Build ArduSub and upload it to the Pixhawk
-Follow the instructions [here][5]. The Pixhawk will most likely work best using the px4-v3 board.
+Follow the instructions [here][4]. The Pixhawk will most likely work best using the px4-v3 board.
 
 *TODO* add information about arm-none-eabi-gcc
 
