@@ -7,9 +7,13 @@ https://www.adafruit.com/product/3775?src=raspberrypi
 
 # Batteries: 
 Size: 18650
+
 Nominal Capacity: 2500mAh
+
 Nominal Voltage: 3.7V
+
 Maximum Voltage: 4.2V
+
 Charge Batteries using a continuous power supply. Set the constant voltage to 16 volts (Assuming that you have four batteries in series) and charge until the current approaches 0 A. 
 
 # Battery Managment Board
