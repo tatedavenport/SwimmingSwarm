@@ -1,4 +1,8 @@
 # Installation
+
+## Install BLHeliSuite 16.7.14
+Download the software located [here](https://github.com/4712/BLHeliSuite/releases/tag/16714901)
+
 ## Install QGroundControl
 Follow the instructions found [here](https://docs.qgroundcontrol.com/en/getting_started/download_and_install.html)
 
