@@ -1,5 +1,7 @@
 Software:
 
+ADD VIZIER DOCUMENTATION
+
 Instructions:
 	Topside Computer
 		Install blhelisuite 16 (ESC Flashing (test on linux at some point))
