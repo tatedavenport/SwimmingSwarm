@@ -31,3 +31,11 @@ Net weight: 34g
 Package weight: 37g
 https://www.amazon.com/Hobbypower-Absorber-Integrated-Distribution-Controller/dp/B01N3M2TMN
 
+
+# Brushless DC Motors 
+
+
+# Electronic Speed Controllers
+
+
+
