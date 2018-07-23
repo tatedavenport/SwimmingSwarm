@@ -1,5 +1,5 @@
 # MicroSD Card 
-Variety of brands. Just make sure you have at least a 16 GB card to insure you have enough memory for the .iso.
+Variety of brands. Just make sure you have at least a 16 GB card to insure you have enough memory for the .img.
 
 # Raspberry Pi 3 Model B+ 
 [Raspberry Pi Link](https://www.adafruit.com/product/3775?src=raspberrypi)
@@ -39,4 +39,4 @@ Net weight: 34g
 [Vertical Thrusters](https://www.amazon.com/FPVDrone-7500KV-Brushless-Racing-Quadcopter/dp/B077GKLSP7/ref=sr_1_3?s=electronics&ie=UTF8&qid=1530131563&sr=1-3&keywords=1104+brushless)
 
 # Electronic Speed Controllers
-https://www.amazon.com/Makerfire-BLHeli-Brushless-Controller-QAV210/dp/B07867ZMFJ/ref=sr_1_1_sspa?s=toys-and-games&ie=UTF8&qid=1527016924&sr=1-1-spons&keywords=makerfire+esc+2-4s&psc=1
+[ESC link](https://www.amazon.com/Makerfire-BLHeli-Brushless-Controller-QAV210/dp/B07867ZMFJ/ref=sr_1_1_sspa?s=toys-and-games&ie=UTF8&qid=1527016924&sr=1-1-spons&keywords=makerfire+esc+2-4s&psc=1)
