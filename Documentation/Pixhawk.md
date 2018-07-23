@@ -15,11 +15,12 @@ behind the ArduPilot version.
 
 
 # Build ArduSub and upload it to the Pixhawk
-Follow the instructions [here][4]. The Pixhawk will most likely work best using the px4-v3 board.
+First, follow the setup instructions [here][4]. Then, follow instructions [here][5] to build the firmware. the The Pixhawk will most likely work best using the px4-v3 board.
 
 *TODO* add information about arm-none-eabi-gcc
 
 [1]: https://docs.qgroundcontrol.com/en/SetupView/Firmware.html
 [2]: https://www.ardusub.com/developers/developers.html#making-a-custom-configuration
 [3]: https://www.ardusub.com/developers/developers.html#developers
-[4]: https://github.com/ArduPilot/ardupilot/blob/master/BUILD.md
+[4]: http://ardupilot.org/dev/docs/building-setup-linux.html#building-setup-linux
+[5]: https://github.com/ArduPilot/ardupilot/blob/master/BUILD.md
