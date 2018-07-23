@@ -6,12 +6,9 @@ Variety of brands. Just make sure you have at least a 16 GB card to insure you h
 
 
 # Batteries: 
-Size: 18650
-
-Nominal Capacity: 2500mAh
-
-Nominal Voltage: 3.7V
-
+Size: 18650  
+Nominal Capacity: 2500mAh  
+Nominal Voltage: 3.7V   
 Maximum Voltage: 4.2V
 
 Charge Batteries using a continuous power supply. Set the constant voltage to 16 volts (Assuming that you have four batteries in series) and charge until the current approaches 0 A. 
@@ -24,10 +21,8 @@ Charge Batteries using a continuous power supply. Set the constant voltage to 16
 [PX4](https://docs.px4.io/en/flight_controller/pixhawk.html)
 
 # Power Distribution board 
-12V and 5V BEC w/ LC filtering supports up to 3A current.
-
-Size: 90 x 60 x 8mm/3.5 x 2.4 x 0.3 inch
-
+12V and 5V BEC w/ LC filtering supports up to 3A current.  
+Size: 90 x 60 x 8mm/3.5 x 2.4 x 0.3 inch  
 Net weight: 34g
 
 [PDB Link](https://www.amazon.com/Hobbypower-Absorber-Integrated-Distribution-Controller/dp/B01N3M2TMN)
