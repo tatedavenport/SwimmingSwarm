@@ -8,7 +8,7 @@ ArduSub supports custom motor layouts called frames. In order to do this:
    1. This can be found in `Ardupilot/libraries\AP_Motors\AP_Motors6DOF.cpp`
    2. Search for SUB_FRAME_CUSTOM and your motor there following [this template][2]
    3. Uncomment the break statement after the added commands
-2. [Compile the firmware and upload it to the Pixhawk][3]
+2. Compile the firmware and upload it to the Pixhawk
 
 More information can be found [here][4] but this page is specifically for the Blue Robotics version of ArduSub which is significantly
 behind the ArduPilot version.
@@ -21,6 +21,5 @@ Follow the instructions [here][5]. The Pixhawk will most likely work best using 
 
 [1]: https://docs.qgroundcontrol.com/en/SetupView/Firmware.html
 [2]: https://www.ardusub.com/developers/developers.html#making-a-custom-configuration
-[3]: https://github.com/chachmu/SwimmingSwarm/blob/master/Documentation/Pixhawk.md#build-ardusub-and-upload-it-to-the-pixhawk
-[4]: https://www.ardusub.com/developers/developers.html#developers
-[5]: https://github.com/ArduPilot/ardupilot/blob/master/BUILD.md
+[3]: https://www.ardusub.com/developers/developers.html#developers
+[4]: https://github.com/ArduPilot/ardupilot/blob/master/BUILD.md
