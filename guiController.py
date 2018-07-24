@@ -77,18 +77,8 @@ node.start()
 
 # Get the links for Publishing/Subscribing
 publishable_link = list(node.publishable_links)[0]
-subscribale_link = list(node.subscribable_links)[0]
+subscribable_link = list(node.subscribable_links)[0]
 msg_queue = node.subscribe(subscribable_link)
-
-
-#Initialize Connection
-print("Connecting to Robot")
-
-node.publish(publishable_link,"0,0|")
-message = msg_queue.get().payload.decode(encoding='UTF-8')
-state = int(message)
-
-
 
 pygame.init()
 size = (640, 480)
@@ -102,7 +92,13 @@ done = False
 pygame.joystick.init()
 joystick = pygame.joystick.Joystick(0)
 joystick.init()
-state = 1
+
+#Initialize Connection
+print("Connecting to Robot")
+
+node.publish(publishable_link,"0,0,0")
+message = msg_queue.get(timeout = 10).payload.decode(encoding='UTF-8')
+state = int(message)
 
 while not done:
     for event in pygame.event.get():
@@ -112,7 +108,7 @@ while not done:
     yaw1 = joystick.get_axis(0)
     forward1 = joystick.get_axis(1)
     yaw2 = joystick.get_axis(2)
-    forward2 = joystick.get_axis(3)
+    throttle1 = joystick.get_axis(3)
 
     # Recieve data here
     try:
@@ -120,29 +116,29 @@ while not done:
         state = int(message)
     except:
         print("Connection to robot lost")
-        node.publish(publishable_link,"0,0|")
-        break
-
+        node.publish(publishable_link,"0,0,0")
+        #break
+    '''
     if state != 1:
         print("Connection to robot lost")
-        node.publish(publishable_link,"0,0|")
+        node.publish(publishable_link,"0,0,0")
         break
+    '''
+
 
     # Send data here
-    node.publish(publishable_link, str(round(yaw1,3)) + "," + str(round(Forward1, 3)) + "|")
+    node.publish(publishable_link, str(round(yaw1,3)) + "," + str(round(forward1, 3)) + "," + str(round(throttle1,3)))
 
 
     screen.fill(WHITE)
     drawJoystick(215, 210, yaw1, forward1, screen)
-    drawJoystick(425, 210, yaw2, forward2, screen)
-    drawThrottle(5, 40, forward1,screen)
+    drawJoystick(425, 210, yaw2, throttle1, screen)
+    drawThrottle(5, 40, forward1, screen)
     drawSteering(120, 400, yaw1, screen)
 
     pygame.display.flip()
 
     clock.tick(60)
 
-
-print('closing socket')
-sock.close()
+node.stop()
 pygame.quit()
