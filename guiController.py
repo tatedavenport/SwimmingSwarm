@@ -1,8 +1,10 @@
 #socket_echo_client.py
 
-import socket
-import sys
 
+
+import json
+import numpy as np
+import vizier.node as vizier_node
 import pygame
 import math
 
@@ -59,31 +61,33 @@ def drawSteering(x, y, value, screen):
     pygame.draw.rect(screen, BLUE, [x+width, y, tx, 20])
 
 
-def send_data(message):
-    # Send data
-    print('sending {!r}'.format(message))
-    sock.sendall(str.encode(message))
+# Ensure that Node Descriptor File can be Opened
+node_descriptor = None
+try:
+        f = open("node_desc_controller.json", 'r')
+        node_descriptor = json.load(f)
+        f.close()
+except Exception as e:
+    print(repr(e))
+    print("Couldn't open given node file node_desc_controller.json")
 
-    # Look for the response
-    amount_received = 0
-    amount_expected = len(message)
+# Start the Node
+node = vizier_node.Node("localhost", 1884, node_descriptor)
+node.start()
 
-    while amount_received < amount_expected:
-        data = sock.recv(16)
-        amount_received += len(data)
-        if data:
-            print('received {!r}'.format(data))
-
-
-# Create a TCP/IP socket
-sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+# Get the links for Publishing/Subscribing
+publishable_link = list(node.publishable_links)[0]
+subscribale_link = list(node.subscribable_links)[0]
+msg_queue = node.subscribe(subscribable_link)
 
 
+#Initialize Connection
+print("Connecting to Robot")
 
-# Connect the socket to the port where the server is listening
-server_address = ('localhost', 10000)
-print('connecting to {} port {}'.format(*server_address))
-sock.connect(server_address)
+node.publish(publishable_link,"0,0|")
+message = msg_queue.get().payload.decode(encoding='UTF-8')
+state = int(message)
+
 
 
 pygame.init()
@@ -98,6 +102,7 @@ done = False
 pygame.joystick.init()
 joystick = pygame.joystick.Joystick(0)
 joystick.init()
+state = 1
 
 while not done:
     for event in pygame.event.get():
@@ -108,9 +113,24 @@ while not done:
     forward1 = joystick.get_axis(1)
     yaw2 = joystick.get_axis(2)
     forward2 = joystick.get_axis(3)
-    #print("yaw: ", yaw1)
-    #print("forward1: ",forward1)
-    send_data(str(round(yaw1,3)) + "," + str(round(forward1,3)) + "|")
+
+    # Recieve data here
+    try:
+        message = msg_queue.get(timeout = 1).payload.decode(encoding='UTF-8')
+        state = int(message)
+    except:
+        print("Connection to robot lost")
+        node.publish(publishable_link,"0,0|")
+        break
+
+    if state != 1:
+        print("Connection to robot lost")
+        node.publish(publishable_link,"0,0|")
+        break
+
+    # Send data here
+    node.publish(publishable_link, str(round(yaw1,3)) + "," + str(round(Forward1, 3)) + "|")
+
 
     screen.fill(WHITE)
     drawJoystick(215, 210, yaw1, forward1, screen)
