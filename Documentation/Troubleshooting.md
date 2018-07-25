@@ -13,16 +13,18 @@ for the RAM to overflow to.
 **WARNING: Do not leave the swap file enabled when not using it to build a program as extended use can degrade the SD card**
 1. Create a swap file large enough to help compile the program (usually 1 or 2 GB is plenty) (Skip this step if you already have a swap file)
    
-   `dd if=/dev/zero of=~/swap bs=1M count=1024`
-   `mkswap ~/swap`
-   This creates a swap file of 1024 chunks of 1MB making it 1GB then makes it a valid swap file.
+   ```
+   dd if=/dev/zero of=~/swap bs=1M count=1024
+   sudo mkswap ~/swap
+   ```
+   This creates a swap file of 1024 chunks of 1MB making it 1GB then makes it a valid swap file. The `dd` command doesn't provide any feedback that it is working so it may look like it has frozen. Just give it enough time and it should eventually finish.
 2. Enable the swap file
     
-    `swapon ~/swap`
+    `sudo swapon ~/swap`
 3. Compile your program
 4. **Disable the swap file**
 
-   `swapoff`
+   `sudo swapoff`
    
 ## Raspberry Pi Won't Output To Screen
 Sometimes if the Raspberry Pi isn't connected to a screen when it is powered on it will not initialize the HDMI Output so there will be no video out. Try disconnecting and reconnecting the power to the Raspberry Pi while the screen is plugged in and turned on.
