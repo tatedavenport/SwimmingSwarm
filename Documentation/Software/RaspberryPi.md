@@ -8,6 +8,9 @@ dd if=mmcblk0p2 of=RaspberryPiImage.img bs=1M
 Then you can use dd or some other software (like [Etcher][2])
 to copy that image to another sd card.
 
+When you first boot up the new install it will most likely resize itself to the size of your SD Card and reboot, this is normal.
+The root password should be `raspberry`
+
 # Installing Dependencies for Joystick Control over Wifi
 ## Dronekit
 Make sure you install dronekit first as it will overwrite the MavLink install with an older version that wil not work.
