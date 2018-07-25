@@ -1,5 +1,5 @@
 # Installing the Operating System
-You can either download an base install of [raspbian][1] or copy a disk image from one of the other working raspberry pi's.
+You can either download a base install of [Raspbian][1] or copy a disk image from one of the other working raspberry pi's.
 To copy the disk image put the sd card in a linux computer, unmount the partitions, and run 
 
 ```
