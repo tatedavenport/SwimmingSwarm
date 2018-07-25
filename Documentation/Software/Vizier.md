@@ -1,3 +1,8 @@
+# Installation
+1. Clone or download the [repository][2].
+2. Run the setup script from the vizier/python folder by running `sudo python3 setup.py install`
+3. Install Mosquitto by running `sudo apt-get install mosquitto`
+
 # Overview
 Vizier is 
 "A networking framework built on top of MQTT to allow the communication and synchronization of distributed,
