@@ -36,7 +36,11 @@ Instead, install some graphics dependencies by running
 
 `sudo apt-get install libwxgtk3.0-dev freeglut3-dev` 
 
-Then build Limesuite by following [this guide][6].
+This process will also require more RAM than the Raspberry Pi has so you will need
+to enable a temporary swap file as shown [here][6]
+
+
+Then build Limesuite by following [this guide][7].
 
 
 [1]: https://www.raspberrypi.org/downloads/raspbian/
@@ -44,4 +48,5 @@ Then build Limesuite by following [this guide][6].
 [3]: https://github.com/pothosware/SoapySDR/wiki/BuildGuide
 [4]: https://osmocom.org/projects/gr-osmosdr/wiki#Build-process
 [5]: https://wiki.myriadrf.org/Lime_Suite#Ubuntu
-[6]: https://wiki.myriadrf.org/Lime_Suite#Unix_makefiles
+[6]: https://github.com/chachmu/SwimmingSwarm/blob/master/Documentation/Troubleshooting.md#raspberry-pi-freezes-when-trying-to-build-a-program
+[7]: https://wiki.myriadrf.org/Lime_Suite#Unix_makefiles
