@@ -22,8 +22,8 @@ quickly enough.
    * Topside Computer: `python3 guiController.py`
    * Raspberry Pi: `python3 robot.py`
 
-[1]: https://github.com/chachmu/SwimmingSwarm/blob/master/Documentation/TopsideComputer.md#other-required-software
+[1]: https://github.com/chachmu/SwimmingSwarm/blob/master/Documentation/Software/TopsideComputer.md#other-required-software
 [2]: https://github.com/robotarium/vizier
-[3]: https://github.com/chachmu/SwimmingSwarm/blob/master/Documentation/RaspberryPi.md#installing-dependencies-for-joystick-control-over-wifi
+[3]: https://github.com/chachmu/SwimmingSwarm/blob/master/Documentation/Software/RaspberryPi.md#installing-dependencies-for-joystick-control-over-wifi
 [4]: https://github.com/chachmu/SwimmingSwarm/blob/04b4c606ec923ecefc45c05d37f08ebd242f9115/robot.py#L34
 [5]: https://github.com/chachmu/SwimmingSwarm/blob/04b4c606ec923ecefc45c05d37f08ebd242f9115/guiController.py#L72
