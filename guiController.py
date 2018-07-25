@@ -15,8 +15,13 @@ BLUE     = (   0,   0, 255)
 GREY     = (   160, 160,  160)
 
 def drawJoystick(x, y, xv, yv, screen):
+    #Draws the Circular Joystick value indicator
+
     radius = 100
     pygame.draw.circle(screen, OFFWHITE, (x, y), radius)
+
+    #Large amount of math to convert  the joystick input from a square looking map (where the top right is 1.0, 1.0)
+    #to a circle where the top right is sqrt(2), sqrt(2)
 
     magnitude = radius * (xv**2 + yv**2)**.5
     angle = 0
@@ -45,6 +50,7 @@ def drawJoystick(x, y, xv, yv, screen):
 
 
 def drawThrottle(x, y, value, color ,screen):
+    # Draws a vertical indicator
     height = 200
     pygame.draw.rect(screen, OFFWHITE, [x, y, 20, 2*height])
     ty = int(height*value)
@@ -52,6 +58,7 @@ def drawThrottle(x, y, value, color ,screen):
 
     
 def drawSteering(x, y, value, screen):
+    #Draws a horizontal indicator
     width = 200
     pygame.draw.rect(screen, OFFWHITE, [x, y, 2*width, 20])
     tx = int(width*value)
@@ -99,6 +106,7 @@ state = 0
 recieved = False
 
 while not done:
+    #Check for Exit Event from Pygame
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             done = True
@@ -110,6 +118,7 @@ while not done:
 
     # Recieve data here
     try:
+        #Recieve Vizier Messages
         message = msg_queue.get(timeout = 1).payload.decode(encoding='UTF-8')
         state = int(message)
     except:
@@ -122,22 +131,29 @@ while not done:
             state = 1
 
     if state != 1:
+        #Robot sent back bad status
         print("Connection to robot lost")
         node.publish(publishable_link,"0,0,0")
         break
 
-
-    # Send data here
+    #Send Vizier Message
     node.publish(publishable_link, str(round(yaw1,3)) + "," + str(round(forward1, 3)) + "," + str(round(throttle1,3)))
 
-
+    #Clear Screen to Background Color
     screen.fill(GREY)
+
+    #Draw Joystick Indicators
     drawJoystick(215, 210, yaw1, forward1, screen)
     drawJoystick(425, 210, yaw2, throttle1, screen)
+
+    #Draw Vertical Indicators
     drawThrottle(20, 40, forward1,GREEN, screen)
     drawThrottle(600, 40, throttle1,RED, screen)
+
+    #Draw Horizontal Indicator
     drawSteering(120, 400, yaw1, screen)
 
+    #Draw Labels
     myfont = pygame.font.SysFont('Comic Sans MS', 30)
     textsurface1 = myfont.render('Throttle', False, (0, 0, 0))
     textsurface2 = myfont.render('Yaw', False, (0,0,0))
@@ -146,9 +162,14 @@ while not done:
     screen.blit(textsurface2,(300,375))
     screen.blit(textsurface3,(570,10))
 
+    #update Screen
     pygame.display.flip()
 
+    #Limit FPS to 60
     clock.tick(60)
 
+#Clean up Connection
 node.stop()
+
+#Quit Pygame
 pygame.quit()

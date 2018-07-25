@@ -30,6 +30,7 @@ except Exception as e:
     print(repr(e))
     print("Couldn't open given node file node_desc_robot.json")
 
+
 # Start the Node
 node = vizier_node.Node("localhost", 1884, node_descriptor)
 node.start()
@@ -51,6 +52,7 @@ recieved = False
 
 while True:
     try:
+        # Recieve Vizier Messages
         message = msg_queue.get(timeout = 1).payload.decode(encoding='UTF-8')
     
     except KeyboardInterrupt:
@@ -64,19 +66,24 @@ while True:
         else:
             recieved = True
 
+    # Send Vizier Message
     node.publish(publishable_link,"1")
 
+    #Split Vizier Message into joystick values
     values = message.split(",")
     yaw = values[0]
     forward = values[1]
     throttle = values[2]
     print(yaw + "," + forward + "," + throttle)
     
+    #Send Commands over Mavlink
     #vehicle.channels.overrides = {'4': joystickToChannel(yaw), '5': joystickToChannel(forward), '3': joystickToChannel(throttle)}
  
 
 # Clean up the connection
 node.publish(publishable_link,"0")
 node.stop()
+
+#Stop the robot from moving
 #vehicle.channels.overrides = {}
 
