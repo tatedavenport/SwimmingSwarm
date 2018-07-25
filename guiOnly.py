@@ -1,3 +1,5 @@
+# This file runs the Joystick GUI without connecting to the robot
+
 import pygame
 import math
 import time
