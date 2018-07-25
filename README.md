@@ -1,4 +1,7 @@
 # Software Documentation
+## Running the Code
+See [this guide](https://github.com/chachmu/SwimmingSwarm/blob/master/Documentation/Software/VizierWifiController.md#running-the-code).
+
 ## Setup
 Follow the links from top to bottom for complete installation.
 ### [Topside Computer](https://github.com/chachmu/SwimmingSwarm/blob/master/Documentation/Software/TopsideComputer.md)
