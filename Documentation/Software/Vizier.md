@@ -53,16 +53,16 @@ node_descriptor = json.load(f)
 f.close()
 ```
 
-This code loads the node description information from a JSON file and stores it in `node_descriptor`.
+This code loads the node description information from a JSON file and stores it in `node_descriptor`.  
 
-
+<br><br>
 Next, you need to start the Vizier Node.  
 ```python
 node = vizier_node.Node("localhost", 1884, node_descriptor)
 ```
-The first argument is the address that the MQTT Server is running at. The second argument is the port number. Finally, the third argument is the node description information pulled from the JSON file as shown earlier.
+The first argument is the address that the MQTT Server is running at. The second argument is the port number. Finally, the third argument is the node description information pulled from the JSON file as shown earlier.  
 
-
+<br><br>
 After this you need to set up the connections for sending and recieving.
 
 ```python
@@ -71,10 +71,9 @@ subscribable_link = list(node.subscribable_links)[0]
 msg_queue = node.subscribe(subscribable_link)
 ```
 The first two lines get the first publishable link and subscribable link from the list of each type of link in the JSON file.
-Then, the last line sets up a message queue for the recieving link to put recieved messages into.
+Then, the last line sets up a message queue for the recieving link to put recieved messages into.  
 
-
-
+<br><br>
 Next, you need to send or recieve using the links that you have set up. 
 ```python
 node.publish(publishable_link,"1")
@@ -85,10 +84,9 @@ The first line sends a string, `"1"`, over the `/state` link since it is the fir
 
 The second line recieves a message from the recieving link (timing out if it has not recieved a message after 1 second).
 This message contains a payload (the information we want) which is in binary form. the call to decode() is to decode this binary
-into a string using UTF-8.
+into a string using UTF-8.  
 
-
-
+<br><br>
 Finally, when we are done we need to close the connection.
 ```python
 node.stop()
