@@ -1,5 +1,5 @@
 # Installation
-1. Clone or download the [repository][2].
+1. Clone or download the [repository][1].
 2. Run the setup script from the vizier/python folder by running `sudo python3 setup.py install`
 3. Install Mosquitto by running `sudo apt-get install mosquitto`
 
@@ -96,4 +96,5 @@ Finally, when we are done we need to close the connection.
 ```python
 node.stop()
 ```
-[1]: https://github.com/chachmu/SwimmingSwarm/blob/849e48bec4546f2969349d917c4d93bd74bb12cf/robot.py
+[1]: https://github.com/robotarium/vizier
+[2]: https://github.com/chachmu/SwimmingSwarm/blob/849e48bec4546f2969349d917c4d93bd74bb12cf/robot.py
