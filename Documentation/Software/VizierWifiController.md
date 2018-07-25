@@ -5,7 +5,7 @@
    1. Clone or download the [repository][2].
    2. Run the setup script from the vizier/python folder by running
     `sudo python3 setup.py install`
-   3. Install Mosquitto by running `sudo apt-get install Mosquitto`
+   3. Install Mosquitto by running `sudo apt-get install mosquitto`
 
 ## Raspberry Pi
 1. Install Vizier the same way it was installed on the Topside Computer
