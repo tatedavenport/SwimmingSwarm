@@ -33,7 +33,9 @@ Follow the build guide [here][4]
 You can attemt to follow the install guide [here][5] but
 this didn't work on Raspberry Pi due to the repository not supporting it. 
 Instead, install some graphics dependencies by running 
+
 `sudo apt-get install libwxgtk3.0-dev freeglut3-dev` 
+
 Then build Limesuite by following [this guide][6].
 
 
