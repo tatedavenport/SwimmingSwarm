@@ -12,7 +12,7 @@ OFFWHITE = ( 235, 235, 235)
 GREEN    = (   0, 255,   0)
 RED      = ( 255,   0,   0)
 BLUE     = (   0,   0, 255)
-GREY     = (   65, 65,  65)
+GREY     = (   160, 160,  160)
 
 def drawJoystick(x, y, xv, yv, screen):
     radius = 100
@@ -44,11 +44,11 @@ def drawJoystick(x, y, xv, yv, screen):
     pygame.draw.circle(screen, RED, (cx, cy), 5)
 
 
-def drawThrottle(x, y, value, screen):
+def drawThrottle(x, y, value, color ,screen):
     height = 200
     pygame.draw.rect(screen, OFFWHITE, [x, y, 20, 2*height])
     ty = int(height*value)
-    pygame.draw.rect(screen, GREEN, [x, y+height, 20, ty])
+    pygame.draw.rect(screen, color, [x, y+height, 20, ty])
 
     
 def drawSteering(x, y, value, screen):
@@ -134,9 +134,17 @@ while not done:
     screen.fill(GREY)
     drawJoystick(215, 210, yaw1, forward1, screen)
     drawJoystick(425, 210, yaw2, throttle1, screen)
-    drawThrottle(5, 40, forward1, screen)
-    drawThrottle(615, 40, throttle1, screen)
+    drawThrottle(20, 40, forward1,GREEN, screen)
+    drawThrottle(600, 40, throttle1,RED, screen)
     drawSteering(120, 400, yaw1, screen)
+
+    myfont = pygame.font.SysFont('Comic Sans MS', 30)
+    textsurface1 = myfont.render('Throttle', False, (0, 0, 0))
+    textsurface2 = myfont.render('Yaw', False, (0,0,0))
+    textsurface3 = myfont.render('Depth', False, (0,0,0))
+    screen.blit(textsurface1,(5,10))
+    screen.blit(textsurface2,(300,375))
+    screen.blit(textsurface3,(570,10))
 
     pygame.display.flip()
 
