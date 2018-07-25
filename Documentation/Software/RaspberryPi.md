@@ -21,32 +21,35 @@ To install MavLink run `sudo pip3 install -U pymavlink`
 
 After installing MavLink and Dronekit the MavLink version should be at least 2.2.10
 
+## Vizier
+See [this guide][3] for installing vizier.
 
 # Installing LimeSDR and other Dependencies
 ## Install GNURadio
 To install GNURadio run `sudo apt-get install gnuradio`
 ## Install SoapySDR
-Follow the build guide [here][3]
-## Install Osmocom
 Follow the build guide [here][4]
+## Install Osmocom
+Follow the build guide [here][5]
 ## Install Limesuite
-You can attemt to follow the install guide [here][5] but
+You can attemt to follow the install guide [here][6] but
 this didn't work on Raspberry Pi due to the repository not supporting it. 
 Instead, install some graphics dependencies by running 
 
 `sudo apt-get install libwxgtk3.0-dev freeglut3-dev` 
 
 This process will also require more RAM than the Raspberry Pi has so you will need
-to enable a temporary swap file as shown [here][6]
+to enable a temporary swap file as shown [here][7]
 
 
-Then build Limesuite by following [this guide][7].
+Then build Limesuite by following [this guide][8].
 
 
 [1]: https://www.raspberrypi.org/downloads/raspbian/
 [2]: https://etcher.io/
-[3]: https://github.com/pothosware/SoapySDR/wiki/BuildGuide
-[4]: https://osmocom.org/projects/gr-osmosdr/wiki#Build-process
-[5]: https://wiki.myriadrf.org/Lime_Suite#Ubuntu
-[6]: https://github.com/chachmu/SwimmingSwarm/blob/master/Documentation/Troubleshooting.md#raspberry-pi-freezes-when-trying-to-build-a-program
-[7]: https://wiki.myriadrf.org/Lime_Suite#Unix_makefiles
+[3]: https://github.com/chachmu/SwimmingSwarm/blob/master/Documentation/Software/Vizier.md
+[4]: https://github.com/pothosware/SoapySDR/wiki/BuildGuide
+[5]: https://osmocom.org/projects/gr-osmosdr/wiki#Build-process
+[6]: https://wiki.myriadrf.org/Lime_Suite#Ubuntu
+[7]: https://github.com/chachmu/SwimmingSwarm/blob/master/Documentation/Troubleshooting.md#raspberry-pi-freezes-when-trying-to-build-a-program
+[8]: https://wiki.myriadrf.org/Lime_Suite#Unix_makefiles
