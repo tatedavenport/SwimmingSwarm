@@ -24,7 +24,9 @@ for the RAM to overflow to.
 
    `swapoff`
    
-   
+## Raspberry Pi Won't Output To Screen
+Sometimes if the Raspberry Pi isn't connected to a screen when it is powered on it will not initialize the HDMI Output so there will be no video out. Try disconnecting and reconnecting the power to the Raspberry Pi while the screen is plugged in and turned on.
+
 # Pixhawk
 ## Pixhawk won't connect to Raspberry Pi
 Sometimes the Pixhawk won't connect to MavLink if it does not have backup power throught the ESC's. This is because the Pixhawk treats being powered over USB as being on a testbed and won't arm without a seperate backup power source. 
