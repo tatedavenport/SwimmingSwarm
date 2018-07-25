@@ -8,13 +8,15 @@ import time
 # Define some colors
 BLACK    = (   0,   0,   0)
 WHITE    = ( 255, 255, 255)
+OFFWHITE = ( 235, 235, 235)
 GREEN    = (   0, 255,   0)
 RED      = ( 255,   0,   0)
 BLUE     = (   0,   0, 255)
+GREY     = (   65, 65,  65)
 
 def drawJoystick(x, y, xv, yv, screen):
     radius = 100
-    pygame.draw.circle(screen, BLACK, (x, y), radius, 2)
+    pygame.draw.circle(screen, OFFWHITE, (x, y), radius)
 
     magnitude = radius * (xv**2 + yv**2)**.5
     angle = 0
@@ -44,16 +46,14 @@ def drawJoystick(x, y, xv, yv, screen):
 
 def drawThrottle(x, y, value, screen):
     height = 200
-    pygame.draw.rect(screen, BLACK, [x, y, 20, 2*height], 2)
-    pygame.draw.line(screen, BLACK, [x, y+height], [x+20, y+height], 3)
+    pygame.draw.rect(screen, OFFWHITE, [x, y, 20, 2*height])
     ty = int(height*value)
     pygame.draw.rect(screen, GREEN, [x, y+height, 20, ty])
 
     
 def drawSteering(x, y, value, screen):
     width = 200
-    pygame.draw.rect(screen, BLACK, [x, y, 2*width, 20], 2)
-    pygame.draw.line(screen, BLACK, [x+width, y], [x+width, y+20], 3)
+    pygame.draw.rect(screen, OFFWHITE, [x, y, 2*width, 20])
     tx = int(width*value)
     pygame.draw.rect(screen, BLUE, [x+width, y, tx, 20])
 
@@ -131,10 +131,11 @@ while not done:
     node.publish(publishable_link, str(round(yaw1,3)) + "," + str(round(forward1, 3)) + "," + str(round(throttle1,3)))
 
 
-    screen.fill(WHITE)
+    screen.fill(GREY)
     drawJoystick(215, 210, yaw1, forward1, screen)
     drawJoystick(425, 210, yaw2, throttle1, screen)
     drawThrottle(5, 40, forward1, screen)
+    drawThrottle(615, 40, throttle1, screen)
     drawSteering(120, 400, yaw1, screen)
 
     pygame.display.flip()
