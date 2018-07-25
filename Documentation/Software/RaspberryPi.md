@@ -30,8 +30,8 @@ Follow the build guide [here][3]
 ## Install Osmocom
 Follow the build guide [here][4]
 ## Install Limesuite
-Follow the build guide [here][5]. 
-This didn't work on raspberry pi due to the repository not supporting it. 
+You can attemt to follow the install guide [here][5] but
+this didn't work on Raspberry Pi due to the repository not supporting it. 
 Instead, build Limesuite by following [this guide][6].
 
 
