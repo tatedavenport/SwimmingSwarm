@@ -1,9 +1,9 @@
-import json
-import numpy as np
-import vizier.node as vizier_node
 import pygame
 import math
 import time
+
+
+pygame.font.init() 
 
 # Define some colors
 BLACK    = (   0,   0,   0)
@@ -58,25 +58,6 @@ def drawSteering(x, y, value, screen):
     pygame.draw.rect(screen, BLUE, [x+width, y, tx, 20])
 
 
-# Ensure that Node Descriptor File can be Opened
-node_descriptor = None
-try:
-        f = open("node_desc_controller.json", 'r')
-        node_descriptor = json.load(f)
-        f.close()
-except Exception as e:
-    print(repr(e))
-    print("Couldn't open given node file node_desc_controller.json")
-
-# Start the Node
-node = vizier_node.Node("localhost", 1884, node_descriptor)
-node.start()
-
-# Get the links for Publishing/Subscribing
-publishable_link = list(node.publishable_links)[0]
-subscribable_link = list(node.subscribable_links)[0]
-msg_queue = node.subscribe(subscribable_link)
-
 pygame.init()
 size = (640, 480)
 screen = pygame.display.set_mode(size)
@@ -90,14 +71,6 @@ pygame.joystick.init()
 joystick = pygame.joystick.Joystick(0)
 joystick.init()
 
-#Initialize Connection
-print("Connecting to Robot")
-
-node.publish(publishable_link,"0,0,0")
-state = 0
-
-recieved = False
-
 while not done:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -107,29 +80,6 @@ while not done:
     forward1 = joystick.get_axis(1)
     yaw2 = joystick.get_axis(2)
     throttle1 = joystick.get_axis(3)
-
-    # Recieve data here
-    try:
-        message = msg_queue.get(timeout = 1).payload.decode(encoding='UTF-8')
-        state = int(message)
-    except:
-        if recieved:
-            print("Connection to robot lost")
-            node.publish(publishable_link,"0,0,0")
-            break
-        else:
-            recieved = True
-            state = 1
-
-    if state != 1:
-        print("Connection to robot lost")
-        node.publish(publishable_link,"0,0,0")
-        break
-
-
-    # Send data here
-    node.publish(publishable_link, str(round(yaw1,3)) + "," + str(round(forward1, 3)) + "," + str(round(throttle1,3)))
-
 
     screen.fill(GREY)
     drawJoystick(215, 210, yaw1, forward1, screen)
@@ -150,5 +100,4 @@ while not done:
 
     clock.tick(60)
 
-node.stop()
 pygame.quit()

@@ -1,0 +1,12 @@
+{
+  "end_point" : "robot",
+  "links" :
+  {
+    "/state" :
+    {
+      "links" : {},
+      "type" : "STREAM"
+    }
+  },
+  "requests" : ["controller/input"]
+}
