@@ -1,12 +1,9 @@
-#socket_echo_client.py
-
-
-
 import json
 import numpy as np
 import vizier.node as vizier_node
 import pygame
 import math
+import time
 
 # Define some colors
 BLACK    = (   0,   0,   0)
@@ -97,8 +94,9 @@ joystick.init()
 print("Connecting to Robot")
 
 node.publish(publishable_link,"0,0,0")
-message = msg_queue.get(timeout = 10).payload.decode(encoding='UTF-8')
-state = int(message)
+state = 0
+
+recieved = False
 
 while not done:
     for event in pygame.event.get():
@@ -115,15 +113,18 @@ while not done:
         message = msg_queue.get(timeout = 1).payload.decode(encoding='UTF-8')
         state = int(message)
     except:
-        print("Connection to robot lost")
-        node.publish(publishable_link,"0,0,0")
-        #break
-    '''
+        if recieved:
+            print("Connection to robot lost")
+            node.publish(publishable_link,"0,0,0")
+            break
+        else:
+            recieved = True
+            state = 1
+
     if state != 1:
         print("Connection to robot lost")
         node.publish(publishable_link,"0,0,0")
         break
-    '''
 
 
     # Send data here

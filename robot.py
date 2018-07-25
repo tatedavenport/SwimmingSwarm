@@ -6,6 +6,7 @@ from dronekit import connect
 import json
 import random
 import vizier.node as vizier_node
+import time
 
 
 def joystickToChannel(value):
@@ -46,6 +47,8 @@ node.publish(publishable_link,"1")
 message = msg_queue.get(timeout = 10).payload.decode(encoding='UTF-8')
 
 
+recieved = False
+
 while True:
     try:
         message = msg_queue.get(timeout = 1).payload.decode(encoding='UTF-8')
@@ -54,8 +57,12 @@ while True:
         break
     
     except:
-        print("something broke")
-        #continue
+        if recieved:
+            print("Connection to Controller Lost")
+            node.publish(publishable_link, "0")
+            break
+        else:
+            recieved = True
 
     node.publish(publishable_link,"1")
 
