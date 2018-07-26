@@ -10,8 +10,12 @@ Size: 18650
 Nominal Capacity: 2500mAh  
 Nominal Voltage: 3.7V   
 Maximum Voltage: 4.2V
+*[more information](https://secondlifestorage.com/t-LG-LGDBHE21865-Cell-Specifications--1938)*
 
-Charge Batteries using a continuous power supply. Set the constant voltage to 16 volts (Assuming that you have four batteries in series) and charge until the current approaches 0 A. 
+## Charging Batteries
+The batteries can be charged using a continuous power supply. Set the constant voltage to 16~16.4 Volts (Assuming that you have four batteries in series) and set the current to 1.25 Amps for standard charging or 4 Amps for the maximum chargin speed. 
+Connect the positive terminal of the battery to the positive output from the power supply and the negative terminal to ground.
+Turn on the power supply and charge until the current approaches 0 Amps.
 
 # Battery Managment Board
 ????? Chinaesium ????
