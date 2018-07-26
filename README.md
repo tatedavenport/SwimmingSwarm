@@ -11,8 +11,9 @@ Follow the links from top to bottom for complete installation.
 -----
 
 # Electrical Documentation
-## [Electrical Hardware Information](https://github.com/chachmu/SwimmingSwarm/blob/master/Documentation/Electrical/ElectricalHardware.md)
+## [Electrical Design](https://github.com/chachmu/SwimmingSwarm/blob/master/Documentation/Electrical/ElectricalProduction.md)
 ## [ESC Setup](https://github.com/chachmu/SwimmingSwarm/blob/master/Documentation/Electrical/ESCs.md)
+## [Electrical Hardware Information](https://github.com/chachmu/SwimmingSwarm/blob/master/Documentation/Electrical/ElectricalHardware.md)
 -----
 
 # [Mechanical Documentation](https://github.com/chachmu/SwimmingSwarm/blob/master/Documentation/Mechanical/Production.md)
