@@ -1,8 +1,8 @@
 # Overview
-![Electrical Schematic][1]
+![Made in Orcad Capture][1]
 
 # Plate Layout
-![Electrical Plates][2]
+![Made in Microsoft Paint][2]
 
 # Connectors
 ## Bullet Connectors
