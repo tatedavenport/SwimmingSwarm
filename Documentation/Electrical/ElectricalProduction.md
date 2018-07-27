@@ -1,8 +1,9 @@
 # Overview
 ![Made in Orcad Capture][1]
+![Raspberry Pi Pinout][2]
 
 # Plate Layout
-![Made in Microsoft Paint][2]
+![Made in Microsoft Paint][3]
 
 # Connectors
 ## Bullet Connectors
@@ -17,4 +18,5 @@
 
 
 [1]: https://github.com/chachmu/SwimmingSwarm/blob/master/Documentation/Images/Final%20Electrical%20Schematic.png?raw=true
-[2]: https://github.com/chachmu/SwimmingSwarm/blob/master/Documentation/Images/Masterpiece.png?raw=true
+[2]: https://www.jameco.com/Jameco/workshop/circuitnotes/raspberry_pi_circuit_note_fig2a.jpg
+[3]: https://github.com/chachmu/SwimmingSwarm/blob/master/Documentation/Images/Masterpiece.png?raw=true
