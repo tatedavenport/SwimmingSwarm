@@ -11,14 +11,14 @@ import time
 
 def joystickToChannel(value):
     #Channels range from 1200 to 1700 with 1500 being the center value
-    center = (1200 + 1700)/2
-    diff = (1700 - 1200)/2
-    return center + (diff * value)
+    center = (1300 + 1700)/2
+    diff = (1700 - 1300)/2
+    return int(center + (diff * value))
 
 
 connection_string = "/dev/serial/by-id/usb-3D_Robotics_PX4_FMU_v2.x_0-if00"
-#vehicle = connect(connection_string, wait_ready=True) #connect over mavlink
-
+vehicle = connect(connection_string, wait_ready=True) #connect over mavlink
+vehicle.armed = True
 
 # Ensure that Node Descriptor File can be Opened
 node_descriptor = None
@@ -32,7 +32,7 @@ except Exception as e:
 
 
 # Start the Node
-node = vizier_node.Node("localhost", 1884, node_descriptor)
+node = vizier_node.Node("192.168.0.2", 1884, node_descriptor)
 node.start()
 
 # Get the links for Publishing/Subscribing
@@ -45,7 +45,7 @@ msg_queue = node.subscribe(subscribable_link)
 print("Connecting to Controller")
 
 node.publish(publishable_link,"1")
-message = msg_queue.get(timeout = 10).payload.decode(encoding='UTF-8')
+message = msg_queue.get(timeout = 10).decode(encoding='UTF-8')
 
 
 recieved = False
@@ -53,7 +53,7 @@ recieved = False
 while True:
     try:
         # Recieve Vizier Messages
-        message = msg_queue.get(timeout = 1).payload.decode(encoding='UTF-8')
+        message = msg_queue.get(timeout = 1).decode(encoding='UTF-8')
     
     except KeyboardInterrupt:
         break
@@ -71,19 +71,21 @@ while True:
 
     #Split Vizier Message into joystick values
     values = message.split(",")
-    yaw = values[0]
-    forward = values[1]
-    throttle = values[2]
-    print(yaw + "," + forward + "," + throttle)
+    yaw = float(values[0])
+    forward = float(values[1])
+    throttle = float(values[2])
     
     #Send Commands over Mavlink
-    #vehicle.channels.overrides = {'4': joystickToChannel(yaw), '5': joystickToChannel(forward), '3': joystickToChannel(throttle)}
+    vehicle.channels.overrides = {'4': joystickToChannel(yaw), '5': joystickToChannel(forward), '3': joystickToChannel(throttle)}
  
+    print(values)
+    print(joystickToChannel(forward))
 
 # Clean up the connection
 node.publish(publishable_link,"0")
 node.stop()
 
 #Stop the robot from moving
-#vehicle.channels.overrides = {}
+vehicle.armed = False
+vehicle.channels.overrides = {}
 
