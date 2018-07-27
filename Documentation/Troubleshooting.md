@@ -35,9 +35,12 @@ Sometimes the Pixhawk won't connect to MavLink if it does not have backup power 
 This can be resolved by powering the Pixhawk through Telemetry2 or by hooking the ESC's up to a power supply/battery.
     
 # Ubuntu
-## Wayland Issues
-*TODO* Add Information about Wayland Issues
+## Software Won't Display GUI/Start
+Ubuntu 17 experimented with using a new display server protocol called Wayland. This causes a lot of issues
+since the majority of programs for Ubuntu assume that the display server will be Xorg. [This guide][3] shows how to switch
+the display server back to Xorg.
 
 
 [1]: https://lowpowerlab.com/wp-content/uploads/2016/09/Pi3LoadTest_LowVoltage.jpg
 [2]: https://github.com/chachmu/SwimmingSwarm/blob/master/Documentation/Troubleshooting.md#raspberry-pi-won't-connect-to-pixhawk
+[3]: https://itsfoss.com/switch-xorg-wayland/
